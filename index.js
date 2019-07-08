@@ -112,7 +112,7 @@ server.put('/api/users/:id', (req, res) => {
                 return res.status(200).json({
                     status: 200,
                     message: "Update successful",
-                    user: updatedUser
+                    user: body
                 })
             })
             .catch(err => {
