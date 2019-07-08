@@ -64,7 +64,36 @@ server.post('/api/users', (req, res) => {
                user
            })
         })
-})
+        .catch(err => {
+            res.status(500).json({
+                status: 500,
+                error: "There was an error while saving the user to the database" 
+            })
+        })
+});
+
+server.delete('/api/users/:id', (req, res) => {
+    const id = parseInt(req.params.id, 10);
+        UsersModel.remove(id)
+            .then(user => {
+               if (!user) {
+                return res.status(404).json({
+                    status: 400,
+                    message: "The user with the specified ID does not exist." 
+                })
+               }
+               return res.status(200).json({
+                status: 200,
+                message: 'Delete operation successful'
+            })
+            })
+            .catch(err => {
+                res.status(500).json({
+                    status: 500,
+                    error: "The user could not be removed" 
+                })
+            })
+});
 
 server.listen(5000, () => {
     console.log('listening on 5000');
