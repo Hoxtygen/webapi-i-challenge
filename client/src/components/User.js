@@ -7,12 +7,17 @@ function User(props) {
         <SingleUser>
             <h4>{user.name}</h4>
             <p>{user.bio}</p>
+            <button type = 'button'>Delete</button>
         </SingleUser>
     )
 }
 
 const SingleUser = styled.div `
     border: 1px solid red;
+    width: 30%;
+    padding: 5px;
+    background: mediumseagreen;
+    margin-bottom: 10px;
 `
 
 export default User;

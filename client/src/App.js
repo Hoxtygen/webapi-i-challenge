@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import UsersList from './components/UsersList';
+import NewUserForm from './components/NewUserForm';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world</h1>
+      <NewUserForm />
       <UsersList />
     </div>
   );

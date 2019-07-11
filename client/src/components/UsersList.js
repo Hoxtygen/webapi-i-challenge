@@ -30,7 +30,10 @@ class UsersList extends Component {
 }
 
 const UserWrapper = styled.div `
+    display: flex;
+    flex-wrap: wrap;
     border: 1px solid blue;
+    justify-content: flex-start;
 `
 
 const mapStateToProps = (state) => {

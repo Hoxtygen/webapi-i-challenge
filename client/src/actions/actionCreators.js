@@ -65,3 +65,35 @@ export const fetchSingleUser = (id) => dispatch => {
             dispatch(fetch_single_user_failure(err.message))
         })
 }
+
+//Add new user
+export function add_user(userData) {
+    return {
+        type: types.ADD_USER,
+    }
+}
+
+export function add_user_success(userData) {
+    return {
+        type: types.ADD_USER,
+        payload: userData
+    }
+}
+
+export function add_user_failure(error) {
+    return {
+        type: types.ADD_USER,
+        payload: error
+    }
+}
+
+export const addNewUser = (userData) =>dispatch => {
+    dispatch(add_user())
+    axios.post('http://localhost:5000/api/users', userData)
+        .then(res => {
+            dispatch(add_user_success(res.data))
+        })
+        .catch(err => {
+            dispatch(add_user_failure(err.message))
+        })
+}
