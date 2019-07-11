@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../actions/actionCreators';
 import User from './User';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import NewUserForm from './NewUserForm';
 
 class UsersList extends Component {
     componentDidMount() {
@@ -13,18 +15,23 @@ class UsersList extends Component {
         //console.log(this.props)
         const users = this.props.allUsers.users || [];
         return (
+            <div>
+                <NewUserForm />
             <main>
                 <UserWrapper>
+                <ul>
                 {
                     users.map(user => {
-                       return <User 
-                       key = {user.id}
+                       return <Link to = {`/${user.id}`} key = {user.id}> <User 
                         user = {user}
                        />
+                    </Link>
                     })
                 }
+                </ul>
                 </UserWrapper>
             </main>
+            </div>
         )
     }
 }

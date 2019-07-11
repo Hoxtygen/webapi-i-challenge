@@ -25,6 +25,7 @@ export const fetchUsers = () => dispatch => {
     dispatch(fetch_users());
     axios.get('http://localhost:5000/api/users')
         .then(res => {
+            //console.log(res)
             dispatch(fetch_users_success(res.data))
         })
         .catch(err => {
@@ -59,7 +60,8 @@ export const fetchSingleUser = (id) => dispatch => {
     dispatch(fetch_user());
     axios.get(`http://localhost:5000/api/users/${id}`)
         .then(res => {
-            dispatch(fetch_single_user_success(res.data))
+            //console.log(res)
+            dispatch(fetch_single_user_success(res.data.user))
         })
         .catch(err => {
             dispatch(fetch_single_user_failure(err.message))

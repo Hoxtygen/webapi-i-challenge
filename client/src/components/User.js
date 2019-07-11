@@ -7,7 +7,6 @@ function User(props) {
         <SingleUser>
             <h4>{user.name}</h4>
             <p>{user.bio}</p>
-            <button type = 'button'>Delete</button>
         </SingleUser>
     )
 }
